@@ -1,5 +1,6 @@
 
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
+import { responsiveFontSizes } from "@material-ui/core/styles";
 import blue from '@material-ui/core/colors/blue';
 //import red from '@material-ui/core/colors/red';
 
@@ -12,26 +13,37 @@ export interface SimplePaletteColorOptions {
 }
 */
 
-export const createAppTheme = (params: { isDarkModeEnabled: boolean; }) => {
+export const createAppTheme = (params: {
+    isDarkModeEnabled: boolean;
+    isReactStrictModeEnabled: boolean;
+}) => {
 
-    const { isDarkModeEnabled } = params;
+    const { 
+        isDarkModeEnabled, 
+        isReactStrictModeEnabled 
+    } = params;
 
-    const theme = createMuiTheme({
-        // https://material-ui.com/customization/palette/#using-a-color-object
-        "palette": {
-            ...(!isDarkModeEnabled ? {} : { "type": "dark" }),
-            "primary": blue,
-            /*
-            "primary": {
-                "main": blue.A100,
-                "dark": red.A100,
-            }
-            */
-        },
-        "myCustomProp": {
-            "danger": '#e53e3e'
-        }
-    });
+    const theme =
+        responsiveFontSizes( //https://material-ui.com/customization/theming/#responsivefontsizes-theme-options-theme
+            (isReactStrictModeEnabled ?
+                unstable_createMuiStrictModeTheme :
+                createMuiTheme
+            )({ // https://material-ui.com/customization/palette/#using-a-color-object
+                "palette": {
+                    ...(!isDarkModeEnabled ? {} : { "type": "dark" }),
+                    "primary": blue,
+                    /*
+                    "primary": {
+                        "main": blue.A100,
+                        "dark": red.A100,
+                    }
+                    */
+                },
+                "myCustomProp": {
+                    "danger": "#e53e3e"
+                }
+            })
+        );
 
     return { theme };
 

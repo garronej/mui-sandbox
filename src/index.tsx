@@ -10,7 +10,7 @@ import "fontsource-roboto/700.css";
 
 import './index.css';
 
-import App from './App';
+import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
