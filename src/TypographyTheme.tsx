@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme =>
             "padding": theme.spacing(2), //8px 16 32...
             "margin": theme.spacing(1, "auto"),
             "border": "1px solid black"
-        },
+        }
     })
 );
 

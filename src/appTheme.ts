@@ -18,9 +18,9 @@ export const createAppTheme = (params: {
     isReactStrictModeEnabled: boolean;
 }) => {
 
-    const { 
-        isDarkModeEnabled, 
-        isReactStrictModeEnabled 
+    const {
+        isDarkModeEnabled,
+        isReactStrictModeEnabled
     } = params;
 
     const theme =
@@ -41,6 +41,17 @@ export const createAppTheme = (params: {
                 },
                 "myCustomProp": {
                     "danger": "#e53e3e"
+                },
+                // https://material-ui.com/customization/globals/
+                "overrides": {
+                    // Style sheet name ⚛️
+                    "MuiButton": {
+                        // Name of the rule
+                        "text": {
+                            // Some CSS
+                            "color": "white"
+                        }
+                    }
                 }
             })
         );
