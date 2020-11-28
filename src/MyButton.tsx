@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import type { Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import type { ButtonProps, ButtonClassKey } from '@material-ui/core/Button';
 import { Omit } from '@material-ui/types';
 import type { Id } from "evt/tools/typeSafety";
-import styled  from "styled-components";
 import { darken } from '@material-ui/core/styles';
+import { styledTyped } from "./util/styledTyped";
+
 
 export type Props = {
   color: "red" | "blue";
@@ -43,16 +43,18 @@ const useStyles = makeStyles(
 );
 
 
-function MyButton(props: Props & Omit<ButtonProps, keyof Props>) {
-  const { color, ...other } = props;
-  const classes = useStyles(props);
-  return <Button classes={classes} className="MyButton" {...other} />;
-}
 
 
-const StyledMyButton = styled(MyButton)`
-  ${({ theme, color }: Parameters<typeof MyButton>[0] & { theme: Theme; }) => `
-    
+
+export const MyButton = styledTyped(
+
+  function (props: Props & Omit<ButtonProps, keyof Props>) {
+    const { color, ...other } = props;
+    const classes = useStyles(props);
+    return <Button classes={classes} {...other} />;
+  },
+
+  ({ theme, color }) => `
 
   ${theme.breakpoints.up("sm")} {
 
@@ -61,9 +63,9 @@ const StyledMyButton = styled(MyButton)`
     }
 
   }
-  `}
-`;
+  `
+
+);
 
 
-export { StyledMyButton as MyButton };
 

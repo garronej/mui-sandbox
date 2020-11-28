@@ -10,6 +10,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { createAppTheme } from "./appTheme";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { MyButton } from "./MyButton";
+import { MyButtonBest } from "./MyButtonBest";
 
 export function App() {
 
@@ -44,10 +45,20 @@ export function App() {
 
           <ScopedCssBaseline>
             <>
+            <div>
               <MyButton color="red">Red</MyButton>
               <MyButton color="blue">Blue</MyButton>
               <MyButton color="blue" disabled>Blue disabled</MyButton>
               <MyButton color="red" disabled>Red disabled</MyButton>
+            </div>
+            <div>
+              <MyButtonBest color="red">Red</MyButtonBest>
+              <MyButtonBest color="blue">Blue</MyButtonBest>
+              <MyButtonBest color="blue" disabled>Blue disabled</MyButtonBest>
+              <MyButtonBest color="red" disabled>Red disabled</MyButtonBest>
+            </div>
+
+
               <TypographyTheme>This div's text looks like that of a button.</TypographyTheme>
               <Button variant="contained" color="primary"> Hello World </Button>
               <Types />
