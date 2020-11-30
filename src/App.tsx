@@ -14,6 +14,10 @@ import { MyButtonBest } from "./MyButtonBest";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { SystemDemo } from "./SystemDemo";
+import { GridExample } from "./CustomStyleProps";
+import { RealWorld } from "./RealWord";
+
+import { SvgMaterialIcons } from "./SvgMaterialIcons";
 
 
 
@@ -41,7 +45,7 @@ export function App() {
 
   }
 
-  const [color, setColor] = useState<"red" | "blue">("blue")
+  const [color, setColor] = useState<"red" | "blue">("blue");
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,6 +56,8 @@ export function App() {
 
           <ScopedCssBaseline>
             <>
+              <SvgMaterialIcons className="myFooBarBaz"/>
+              <RealWorld />
               <div>
                 <MyButton color="red">Red</MyButton>
                 <MyButton color="blue">Blue</MyButton>
@@ -85,6 +91,7 @@ export function App() {
               <Button variant="contained" color="primary"> Hello World </Button>
               <h1>H1: Heading without dynamic font</h1>
               <Types />
+              <GridExample />
 
             </>
           </ScopedCssBaseline>

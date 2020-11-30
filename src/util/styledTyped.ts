@@ -4,7 +4,7 @@ import type { Theme } from '@material-ui/core/styles';
 
 export type BuildStyleSheets<Props> = (paramsWithTheme: { theme: Theme; } & Props) => string | Record<string, number | string>;
 
-function styledTypedMultiple<Props>(
+export function styledTypedMultiple<Props>(
     component: (props: Props) => JSX.Element,
     buildStyleSheets: BuildStyleSheets<Props>[]
 ) {
