@@ -16,7 +16,6 @@ export const MyButtonBest = styledTyped(
     const { color, ...other } = props;
     return <Button {...other} />;
   },
-
   ({ theme, color }) => `
     background: ${color === "red" ?
       "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)" :

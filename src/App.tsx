@@ -13,6 +13,7 @@ import { MyButton } from "./MyButton";
 import { MyButtonBest } from "./MyButtonBest";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import { SystemDemo } from "./SystemDemo";
 
 
 
@@ -77,10 +78,12 @@ export function App() {
                 />
                 <MyButtonBest color={color}>Dynamic CSS</MyButtonBest>
               </div>
+              <SystemDemo/>
 
 
               <TypographyTheme>This div's text looks like that of a button.</TypographyTheme>
               <Button variant="contained" color="primary"> Hello World </Button>
+              <h1>H1: Heading without dynamic font</h1>
               <Types />
 
             </>
